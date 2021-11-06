@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form validation</title>
+  </head>
+  <body>
+    <div class="container">
+      <form
+        id="form"
+        class="form"
+        action="https://staging.interview-api.paversdev.co.uk/upload"
+      >
+        <h2>Pavers React Developer Application Form</h2>
+
+        <div class="form-control">
+          <label for="name">Applicant name</label>
+          <input
+            type="text"
+            id="name"
+            name="applicantName"
+            placeholder="Enter Name"
+          />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            name="applicantEmail"
+            placeholder="Enter email"
+          />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="date">Date of application</label>
+          <input
+            type="date"
+            id="date"
+            name="dateOfApplication"
+            placeholder="Enter date"
+          />
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="about">About you</label>
+
+          <textarea
+            name="aboutYou"
+            id="about"
+            rows="5"
+            cols="40"
+            wrap="soft"
+          ></textarea>
+
+          <!-- <input
+            type="text"
+            id="about"
+            placeholder="Write something about you"
+          /> -->
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="reason">Reason for applying</label>
+          <textarea
+            name="reasonForApplying"
+            id="reason"
+            rows="5"
+            cols="40"
+            wrap="soft"
+          ></textarea>
+          <!-- <input
+            type="text"
+            id="reason"
+            placeholder="Write something about you"
+          /> -->
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="aboutPavers">What do you know about Pavers</label>
+          <textarea
+            name="whatYouKnowAboutPavers"
+            id="aboutPavers"
+            rows="5"
+            cols="40"
+            wrap="soft"
+          ></textarea>
+
+          <!-- <input
+            type="text"
+            id="aboutPavers"
+            placeholder="Tell us what do you know about Pavers"
+          /> -->
+          <small>Error message</small>
+        </div>
+
+        <div class="form-control">
+          <label for="file">Choose your photo</label>
+          <input type="file" id="file" placeholder="" />
+          <small>Error message</small>
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </div>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <p>Thank you for submitting the form</p>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
