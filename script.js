@@ -89,10 +89,10 @@ function checkLength(input, min, max) {
   } else {
     showSuccess(input);
 
-    return true; // Zwraca true jeśli walidacja ok
+    return true;
   }
 
-  return false; // Zwraca false jeśli walidacja nie ok
+  return false;
 }
 
 // Check file name
@@ -104,9 +104,7 @@ const checkFileName = [
   'image/bmp',
 ];
 file.accept = checkFileName;
-file.addEventListener('change', () => {
-  // console.log(file.value);
-});
+file.addEventListener('change', () => {});
 
 // Event listners
 function validateForm() {
@@ -129,8 +127,6 @@ function validateForm() {
   const isValidApplicantEmail = checkEmail(applicantEmail);
   const isValiDate = isValidDate(dateOfApplication.value);
 
-  console.log('isValiDate ::: ', isValiDate); // Mozna dodać intro do console.log, zebyś wiedział czego wartość ci wypisuje w konsoli
-
   const allowSubmit =
     isValidApplicantName &&
     isValidAboutYou &&
@@ -138,16 +134,6 @@ function validateForm() {
     isValidWhatYouKnowAboutPavers &&
     isValidApplicantEmail &&
     isValiDate; // allowSubmit is true if all variable are true
-
-  console.log(
-    'form value ::: ',
-    `${applicantName.value}
-    ${applicantEmail.value}
-    ${date.value}
-    ${aboutYou.value}
-    ${reasonForApplying.value}
-    ${whatYouKnowAboutPavers.value} `
-  );
 
   return allowSubmit;
 }
@@ -167,23 +153,19 @@ async function handleFormSubmit(e) {
     try {
       const formData = new FormData(form);
       const response = await postFormDataAsJson({ url, formData });
-      console.log('response ::: ', response);
 
       openModal();
       btnCloseModal.addEventListener('click', closeModal);
       overlay.addEventListener('click', closeModal);
-
       formPavers.reset();
-    } catch (err) {
-      console.log('err ::: ', err);
-    }
+    } catch (err) {}
   }
 }
 
 async function postFormDataAsJson({ url, formData }) {
   const plainData = Object.fromEntries(formData.entries());
   const formDataJsonString = JSON.stringify(plainData);
-  console.log(plainData);
+  //   console.log(plainData);
   const fetchOptions = {
     method: 'POST',
     headers: {
@@ -192,7 +174,7 @@ async function postFormDataAsJson({ url, formData }) {
     },
     body: formDataJsonString,
   };
-  console.log('formDataJsonString ::: ', formDataJsonString);
+
   const response = await fetch(url, fetchOptions);
 
   if (!response.ok) {
